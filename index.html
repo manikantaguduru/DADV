@@ -2,26 +2,7 @@
 <html>
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-<body>
-<center><h1  style="color:green;font-size:46px;">
-ELECTION COMMISSION OF INDIA
-GENERAL ELECTION TO VIDHAN SABHA TRENDS & RESULT 2018
-</h1></center>
-
-<center>
- <h1>PartyWise</h1>
- <select onchange="stateChangeeee1()" id="selectS1">
-  <option value="MadhyaPradesh">MadhyaPradesh</option>
-  <option value="Mizoram">Mizoram</option>
-  <option value="Chattisgarh">Chattisgarh</option>
-  <option value="Telangana">Telangana</option>
-  <option value="Rajasthan">Rajasthan</option>
-</select>
-<div id="myDiv3">
-</div>
-</center>
-</body>
-<script>
+ <script>
 function stateChangeeee1(){
 	
       var selectS=document.getElementById('selectS1');
@@ -158,4 +139,23 @@ var layOut1 = {
 Plotly.newPlot('myDiv3', data, layOut1);
 }
 </script>
+<body>
+<center><h1  style="color:green;font-size:46px;">
+ELECTION COMMISSION OF INDIA
+GENERAL ELECTION TO VIDHAN SABHA TRENDS & RESULT 2018
+</h1></center>
+
+<center>
+ <h1>PartyWise</h1>
+ <select onchange="stateChangeeee1()" id="selectS1">
+  <option value="MadhyaPradesh">MadhyaPradesh</option>
+  <option value="Mizoram">Mizoram</option>
+  <option value="Chattisgarh">Chattisgarh</option>
+  <option value="Telangana">Telangana</option>
+  <option value="Rajasthan">Rajasthan</option>
+</select>
+<div id="myDiv3">
+</div>
+</center>
+</body>
 </html>
