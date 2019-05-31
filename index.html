@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<body>
+<center><h1  style="color:green;font-size:46px;">
+ELECTION COMMISSION OF INDIA
+GENERAL ELECTION TO VIDHAN SABHA TRENDS & RESULT 2018
+</h1></center>
+
+<center>
+ <h1>PartyWise</h1>
+ <select onchange="stateChangeeee1()" id="selectS1">
+  <option value="MadhyaPradesh">MadhyaPradesh</option>
+  <option value="Mizoram">Mizoram</option>
+  <option value="Chattisgarh">Chattisgarh</option>
+  <option value="Telangana">Telangana</option>
+  <option value="Rajasthan">Rajasthan</option>
+</select>
+</center>
+</body>
+<script>
+function stateChangeeee1(){
+	
+      var selectS=document.getElementById('selectS1');
+      alert(selectS.value);
+      if(selectS.value == 'Chhattisgarh')
+      {
+        $.ajax({
+          type:"GET",
+          url:"data2/S26pw.csv",
+          dataType:"text",
+          success: function(data) {
+            
+            processData2(data);
+          }
+
+        });
+        
+      }
+
+      if(selectS.value == 'MadhyaPradesh')
+      {
+        $.ajax({
+          type:"GET",
+          url:"data2/S12pw.csv",
+          dataType:"text",
+          success: function(data) {
+            
+            processData2(data);
+          }
+
+        });
+        
+      }
+
+      if(selectS.value == 'Mizoram')
+      {
+        //console.log("a");
+        $.ajax({
+          type:"GET",
+          url:"data2/S16pw.csv",
+          dataType:"text",
+          success: function(data) {
+            alert("m");
+            processData2(data);
+          }
+
+        });
+        
+      }
+
+      if(selectS.value == 'Rajasthan')
+      {
+        $.ajax({
+          type:"GET",
+          url:"data2/S20pw.csv",
+          dataType:"text",
+          success: function(data) {
+            
+            processData2(data);
+          }
+
+        });
+        
+      }
+
+      if(selectS.value == 'Telangana')
+      {
+        $.ajax({
+          type:"GET",
+          url:"data2/S29pw.csv",
+          dataType:"text",
+          success: function(data) {
+            
+            processData2(data);
+          }
+
+        });
+        
+      }
+    }
+    function processData2(data)
+    {
+    refinedata=data.split(/\r\n|\n/);
+
+  party=[];
+  votes=[];
+  for(var i=0;i<refinedata.length;i++)
+  {
+    var refined =refinedata[i].split(',');
+    //Constituency.push(refined[0]);
+    party.push(refined[0]);
+    votes.push(refined[1]);
+  }
+  var data = [
+  {
+    x: party,
+    y: votes,
+    marker : {  color:['red','blue','green','yellow','orange','grey'] },
+    type: 'bar'
+  }
+];
+
+var layOut1 = {
+     title: {
+    //text:'Plot Title',
+    font: {
+      family: 'Courier New, monospace',
+      size: 24
+    },
+    xref: 'paper',
+    x: 0.05,
+  },
+  xaxis: {
+    title: {
+      text: 'x Axis : Parties',
+      font: {
+        family: 'Courier New, monospace',
+        size: 18,
+        color: '#7f7f7f'
+        }
+      },
+    },
+  yaxis: {
+    title: {
+      text: 'y Axis : No.Of.Seats Won',
+      font: {
+        family: 'Courier New, monospace',
+        size: 18,
+        color: '#7f7f7f'
+      }
+    }
+  }
+};
+Plotly.newPlot('myDiv3', data, layOut1);
+}
+</script>
+</html>
