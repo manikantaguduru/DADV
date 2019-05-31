@@ -8,7 +8,7 @@ GENERAL ELECTION TO VIDHAN SABHA TRENDS & RESULT 2018
 
 <center>
  <h1>PartyWise</h1>
- <select onchange="stateChangeeee1()">
+ <select onchange="stateChangeeee1()" id="selectS1">
   <option value="MadhyaPradesh">MadhyaPradesh</option>
   <option value="Mizoram">Mizoram</option>
   <option value="Chattisgarh">Chattisgarh</option>
@@ -19,9 +19,9 @@ GENERAL ELECTION TO VIDHAN SABHA TRENDS & RESULT 2018
 </body>
 <script>
 function stateChangeeee1(){
-   
+	
       var selectS=document.getElementById('selectS1');
-      
+      alert(selectS.value);
       if(selectS.value == 'Chhattisgarh')
       {
         $.ajax({
